@@ -1,5 +1,6 @@
 package com.bsep.marketingacency.model;
 
+import com.bsep.marketingacency.converter.StringEncryptorConverter;
 import com.bsep.marketingacency.enumerations.ClientType;
 import com.bsep.marketingacency.enumerations.RegistrationRequestStatus;
 import lombok.Getter;
@@ -42,6 +43,7 @@ public class Client {
     private Package clientPackage;
 
     @Column(name = "phone_number")
+    @Convert(converter = StringEncryptorConverter.class)
     private String phoneNumber;
 
     @Column(name = "address")
