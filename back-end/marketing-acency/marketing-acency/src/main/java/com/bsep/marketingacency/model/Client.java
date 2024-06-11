@@ -1,6 +1,6 @@
 package com.bsep.marketingacency.model;
 
-import com.bsep.marketingacency.converter.StringEncryptorConverter;
+import com.bsep.marketingacency.converter.AesEncryptor;
 import com.bsep.marketingacency.enumerations.ClientType;
 import com.bsep.marketingacency.enumerations.RegistrationRequestStatus;
 import lombok.Getter;
@@ -43,7 +43,7 @@ public class Client {
     private Package clientPackage;
 
     @Column(name = "phone_number")
-    @Convert(converter = StringEncryptorConverter.class)
+    //@Convert(converter = AesEncryptor.class)
     private String phoneNumber;
 
     @Column(name = "address")
@@ -110,10 +110,6 @@ public class Client {
         return clientPackage;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
     public String getAddress() {
         return address;
     }
@@ -162,9 +158,7 @@ public class Client {
         this.clientPackage = clientPackage;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+
 
     public void setAddress(String address) {
         this.address = address;
@@ -180,5 +174,13 @@ public class Client {
 
     public void setIsApproved(RegistrationRequestStatus isApproved) {
         this.isApproved = isApproved;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

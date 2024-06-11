@@ -27,8 +27,10 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;
+import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.InvalidKeyException;
 import java.util.List;
@@ -93,7 +95,9 @@ public class ClientController {
     }
 
     @PostMapping(value = "/register", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ClientRegistrationResponse> register(@RequestBody ClientDto clientDto) {
+    public ResponseEntity<ClientRegistrationResponse> register(@RequestBody ClientDto clientDto) throws KeyStoreException, NoSuchAlgorithmException, IOException {
+        //generisati jedinstveni kljuc za klijenta
+        //cuvanje kljuceva u keystore fajlu
         Client savedClient = clientService.save(clientDto);
         boolean isMfaEnabled = savedClient.getUser().isMfa();
         String secretImageUri = isMfaEnabled ? totpManager.getUriForImage(savedClient.getUser().getSecret()) : null;
