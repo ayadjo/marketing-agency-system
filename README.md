@@ -1,12 +1,12 @@
 # Marketing agency
 
-# Technologies
-**Backend**: Java + Spring Boot
-**Frontend**: Angular
-**Database**: PostgreSQL
+### Technologies
+**Backend:** Java + Spring Boot
+**Frontend:** Angular
+**Database:** PostgreSQL
 
 
-# Application images
+### Application images
 ![home-page](./assets/home-page.png)
 ![registration](./assets/registration.png)
 ![login](./assets/login.png)
@@ -15,8 +15,10 @@
 ![monitoring](./assets/monitoring.png)
 ![admin-profile](./assets/admin-profile.png)
 
+### Project specification
+[Project specification](./Specifikacija_projekta_BSEP.pdf)
 
-# Contributors
+### Contributors
 
 RA 37/2020 Anđela Đorđević
 RA 48/2020 Nina Batranović
